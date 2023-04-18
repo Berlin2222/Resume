@@ -28,7 +28,8 @@ export default function Editor(props) {
 
   const handlePointUpdate = (value, index) => {
     const tempValues = { ...value };
-    // tempValues.points[index] = value;
+    if (!Array.isArray(tempValues.points)) tempValues.points = [];
+    tempValues.points[index] = value;
     setValue(tempValues);
   };
 
@@ -222,12 +223,12 @@ export default function Editor(props) {
         <label>Enter Your Work Experience</label>
         <Input
           placeholder="Line1"
-          defaultValue={value.points ? value.point[0] : ""}
+          defaultValue={value && value.points ? value.points[0] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 0)}
         />
         <Input
           placeholder="Line2"
-          defaultValue={value.points ? value.point[1] : ""}
+          defaultValue={value && value.points ? value.points[1] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 1)}
         />
         {/* <Input placeholder="Line3" /> */}
@@ -276,22 +277,22 @@ export default function Editor(props) {
         <label>Enter Project Description</label>
         <Input
           placeholder="Line1"
-          defaultValue={value.points ? value.point[0] : ""}
+          defaultValue={value && value.points ? value.points[0] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 0)}
         />
         <Input
           placeholder="Line2"
-          defaultValue={value.points ? value.point[1] : ""}
+          defaultValue={value && value.points ? value.points[1] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 1)}
         />
         <Input
           placeholder="Line1"
-          defaultValue={value.points ? value.point[2] : ""}
+          defaultValue={value && value.points ? value.points[2] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 2)}
         />
         <Input
           placeholder="Line2"
-          defaultValue={value.points ? value.point[3] : ""}
+          defaultValue={value && value.points ? value.points[3] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 3)}
         />
       </div>
@@ -343,17 +344,17 @@ export default function Editor(props) {
       <div className="column">
         <Input
           placeholder="Line1"
-          defaultValue={value.points ? value.point[0] : ""}
+          defaultValue={value && value.points ? value.points[0] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 0)}
         />
         <Input
           placeholder="Line2"
-          defaultValue={value.points ? value.point[1] : ""}
+          defaultValue={value && value.points ? value.points[1] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 1)}
         />
         <Input
           placeholder="Line3"
-          defaultValue={value.points ? value.point[2] : ""}
+          defaultValue={value && value.points ? value.points[2] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 2)}
         />
       </div>
@@ -427,22 +428,22 @@ export default function Editor(props) {
         <label>List your Achievements</label>
         <Input
           placeholder="Line1"
-          defaultValue={value.points ? value.point[0] : ""}
+          defaultValue={value && value.points ? value.points[0] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 0)}
         />
         <Input
           placeholder="Line2"
-          defaultValue={value.points ? value.point[1] : ""}
+          defaultValue={value && value.points ? value.points[1] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 1)}
         />{" "}
         <Input
           placeholder="Line3"
-          defaultValue={value.points ? value.point[2] : ""}
+          defaultValue={value && value.points ? value.points[2] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 2)}
         />
         <Input
           placeholder="Line4"
-          defaultValue={value.points ? value.point[3] : ""}
+          defaultValue={value && value.points ? value.points[3] : ""}
           onChange={(e) => handlePointUpdate(e.target.value, 3)}
         />
       </div>

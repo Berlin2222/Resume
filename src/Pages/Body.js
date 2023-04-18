@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import "../App.css";
 import Editor from "./Editor";
+import { Resume } from "./Resume";
 
 export default function Body() {
   const colors = ["#239ca2", "#48bb75", "#0bs5ea", "#a0aec0", "#ed8936"];
@@ -86,9 +87,17 @@ export default function Body() {
           </svg>
         </button>
       </div>
-      <div>
-        <Editor Sections={Sections} information={resumeInformation} />
-        setActiveInformation={setResumeInformation}
+      <div className="main-body">
+        <Editor
+          Sections={Sections}
+          information={resumeInformation}
+          setActiveInformation={setResumeInformation}
+        />
+        <Resume
+          Sections={Sections}
+          information={resumeInformation}
+          // setActiveInformation={setResumeInformation}
+        />
       </div>
     </div>
   );
